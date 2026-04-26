@@ -1,0 +1,45 @@
+{
+  "loteId": "LOTE-2026-04-C",
+  "documentos": [
+    {
+      "id": "DOC-3001",
+      "tipo": "NFE",
+      "numero": "90001",
+      "serie": "2",
+      "valor": "2500.75",
+      "cnpjEmitente": "12345678000195",
+      "cnpjDestinatario": null,
+      "dataEmissao": "2026-04-25"
+    },
+    {
+      "id": "",
+      "tipo": "NFE",
+      "numero": "90002",
+      "serie": "",
+      "valor": null,
+      "cnpjEmitente": "",
+      "cnpjDestinatario": "123",
+      "dataEmissao": ""
+    },
+    {
+      "id": "DOC-3003",
+      "tipo": "",
+      "numero": "90003",
+      "serie": "2",
+      "valor": 10,
+      "cnpjEmitente": "12345678000195",
+      "cnpjDestinatario": "98765432000110",
+      "dataEmissao": "data-invalida"
+    },
+    {
+      "id": "DOC-3004",
+      "tipo": "NFE",
+      "numero": "90004",
+      "serie": "2",
+      "valor": 1.01,
+      "cnpjEmitente": "12345678000195",
+      "cnpjDestinatario": "98765432000110",
+      "dataEmissao": "2026-04-25 15:45:59"
+    }
+  ]
+}

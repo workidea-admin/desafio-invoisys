@@ -1,0 +1,54 @@
+{
+  "loteId": "LOTE-2026-04-A",
+  "documentos": [
+    {
+      "id": "DOC-1001",
+      "tipo": "NFE",
+      "numero": "20260001",
+      "serie": "1",
+      "valor": 12750.35,
+      "cnpjEmitente": "12.345.678/0001-95",
+      "cnpjDestinatario": "98.765.432/0001-10",
+      "dataEmissao": "2026-04-15"
+    },
+    {
+      "id": "DOC-1002",
+      "tipo": "NFE",
+      "numero": "20260002",
+      "serie": "1",
+      "valor": 899.90,
+      "cnpjEmitente": "12345678000195",
+      "dataEmissao": "2026-04-15T10:30:00"
+    },
+    {
+      "id": "DOC-1003",
+      "tipo": "NFSE",
+      "numero": "20260003",
+      "serie": "1",
+      "valor": 500.00,
+      "cnpjEmitente": "11222333000181",
+      "cnpjDestinatario": "44555666000177",
+      "dataEmissao": "2026-04-15"
+    },
+    {
+      "id": "DOC-1004",
+      "tipo": "NFE",
+      "numero": "",
+      "serie": "1",
+      "valor": 0,
+      "cnpjEmitente": "111",
+      "cnpjDestinatario": "222",
+      "dataEmissao": "2026-15-04"
+    },
+    {
+      "id": "DOC-1005",
+      "tipo": "NFE",
+      "numero": "20260001",
+      "serie": "1",
+      "valor": 12750.35,
+      "cnpjEmitente": "12345678000195",
+      "cnpjDestinatario": "98765432000110",
+      "dataEmissao": "2026-04-15"
+    }
+  ]
+}

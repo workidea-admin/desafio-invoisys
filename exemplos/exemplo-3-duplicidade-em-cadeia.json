@@ -1,0 +1,64 @@
+{
+  "loteId": "LOTE-2026-04-B",
+  "documentos": [
+    {
+      "id": "DOC-2001",
+      "tipo": "NFE",
+      "numero": "88001",
+      "serie": "A1",
+      "valor": 150.00,
+      "cnpjEmitente": "12345678000195",
+      "cnpjDestinatario": "98765432000110",
+      "dataEmissao": "2026-04-20"
+    },
+    {
+      "id": "DOC-2002",
+      "tipo": "nfe",
+      "numero": "88001",
+      "serie": "A1",
+      "valor": 150.00,
+      "cnpjEmitente": "12.345.678/0001-95",
+      "cnpjDestinatario": "98765432000110",
+      "dataEmissao": "2026-04-20"
+    },
+    {
+      "id": "DOC-2003",
+      "tipo": "NFE",
+      "numero": "88001",
+      "serie": "A1",
+      "valor": 151.00,
+      "cnpjEmitente": "12345678000195",
+      "cnpjDestinatario": "98765432000110",
+      "dataEmissao": "2026-04-20"
+    },
+    {
+      "id": "DOC-2004",
+      "tipo": "NFE",
+      "numero": "88002",
+      "serie": "A1",
+      "valor": 999.99,
+      "cnpjEmitente": "22334455000166",
+      "cnpjDestinatario": "99887766000144",
+      "dataEmissao": "2026-04-20"
+    },
+    {
+      "id": "DOC-2005",
+      "tipo": "NFE",
+      "numero": "88002",
+      "serie": "A1",
+      "valor": 999.99,
+      "cnpjEmitente": "22.334.455/0001-66",
+      "cnpjDestinatario": "99887766000144",
+      "dataEmissao": "2026-04-20"
+    },
+    {
+      "id": "DOC-2006",
+      "tipo": "NFE",
+      "numero": "88003",
+      "serie": "A2",
+      "valor": 35.40,
+      "cnpjEmitente": "33445566000177",
+      "dataEmissao": "2026-04-20"
+    }
+  ]
+}
