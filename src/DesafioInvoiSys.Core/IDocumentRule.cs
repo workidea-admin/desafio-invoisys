@@ -1,6 +1,6 @@
 namespace DesafioInvoiSys;
 
-public interface IDocumentValidationRule
+internal interface IDocumentRule
 {
     void Validate(InputDocument document, List<string> errors);
 }

@@ -1,29 +1,32 @@
+using System.Globalization;
+
 namespace DesafioInvoiSys;
 
 public static class DocumentValidator
 {
-    private static readonly IDocumentValidationRule[] Rules =
-    [
-        new RequiredIdRule(),
-        new TypeRule(),
-        new NumberRule(),
-        new SeriesRule(),
-        new ValueRule(),
-        new IssuerCnpjRule(),
-        new IssueDateRule(),
-        new RecipientCnpjRule()
-    ];
+    private static readonly ValidationEngine Engine = new();
+    private static readonly DocumentValidationSchema Schema = BuildSchema();
 
-    public static List<string> ValidateFields(InputDocument document)
+    public static List<string> ValidateFields(InputDocument document) => Engine.Validate(document, Schema);
+
+    private static DocumentValidationSchema BuildSchema() =>
+        new DocumentSchemaBuilder()
+            .SupportsType("NFE")
+            .Require(d => d.Id, ValidationMessages.MissingId)
+            .Require(d => d.Number, ValidationMessages.MissingNumber)
+            .Require(d => d.Series, ValidationMessages.MissingSeries)
+            .RequirePositiveValue(d => d.Value, ValidationMessages.MissingValue, ValidationMessages.ValueMustBeGreaterThanZero)
+            .RequireValidCnpj(d => d.IssuerCnpj, ValidationMessages.MissingIssuerCnpj, ValidationMessages.InvalidIssuerCnpj)
+            .RequireDate(d => d.IssueDate, ValidationMessages.MissingIssueDate, ValidationMessages.InvalidIssueDate, TryParseDate)
+            .ValidateOptionalCnpj(d => d.RecipientCnpj, ValidationMessages.InvalidRecipientCnpj, CnpjHelper.IsRecipientProvided)
+            .Build();
+
+    private static bool TryParseDate(string text)
     {
-        var errors = new List<string>();
+        if (DateOnly.TryParse(text, CultureInfo.InvariantCulture, DateTimeStyles.None, out _))
+            return true;
 
-        foreach (var rule in Rules)
-        {
-            rule.Validate(document, errors);
-        }
-
-        return errors;
+        return DateTime.TryParse(text, CultureInfo.InvariantCulture, DateTimeStyles.AllowWhiteSpaces, out _);
     }
 
     public static string BuildDuplicateKey(InputDocument document)

@@ -57,7 +57,30 @@ Exemplos disponíveis:
 - Optei por aplicação console para manter aderência ao escopo e facilitar execução
 - Usei `.NET 10` com `System.Text.Json` para reduzir dependências externas
 - Separei em `Core` e `App` para isolar regra de negócio de I/O
-- Mantive validações explícitas em código para leitura simples e testes diretos
+- Estruturei as validações com uma DSL fluente em C# para facilitar evolução sem acoplamento por classe de regra
 - A validação de duplicidade roda após validações de campo, pois depende do lote completo
 - Em caso de duplicidade, marco todos os documentos envolvidos como inválidos
 - Normalizei a chave de duplicidade (`tipo`, `cnpjEmitente`, `serie`, `numero`) para evitar falso negativo por máscara de CNPJ
+
+## DSL de validação
+
+A validação de documentos está centralizada em um schema fluente no `DocumentValidator`, usando:
+- `SupportsType(...)` para declarar tipos suportados
+- `Require(...)` para regra de obrigatório
+- `AddRule(..., when: ...)` para regra parametrizada e condicional
+
+Exemplo simplificado:
+
+```csharp
+new DocumentSchemaBuilder()
+    .SupportsType("NFE")
+    .Require(d => d.Id, ValidationMessages.MissingId)
+    .AddRule(
+        d => d.Value,
+        v => v > 0m,
+        ValidationMessages.ValueMustBeGreaterThanZero,
+        value => value is not null)
+    .Build();
+```
+
+Com isso, para suportar novos cenários de validação, a principal mudança fica na declaração do schema, preservando o motor de execução genérico.
